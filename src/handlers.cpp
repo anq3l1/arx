@@ -2,6 +2,7 @@
 #include <curl/curl.h>
 #include <string>
 #include "json.h"
+#include "unpacking.h"
 
 std::string install(std::string package)
 {
@@ -46,6 +47,8 @@ std::string install(std::string package)
 
     fclose(file);
     curl_easy_cleanup(curl);
+
+    unpack(package);
 
     return "0";
 }
