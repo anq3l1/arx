@@ -1,12 +1,12 @@
-# APK
+# ARX
 
-**APK** is a simple Linux package manager written in **C++**.
+**ARX** is a simple Linux package manager written in **C++**.
 
 The project is currently in early development and is mainly created as a learning project to understand how Linux package managers work internally.
 
 ## Features
 
-Currently APK can:
+Currently ARX can:
 
 * Download packages from URLs
 * Read package information from `packages.json`
@@ -112,13 +112,13 @@ cd apk
 Compile:
 
 ```bash
-g++ src/*.cpp -Iinclude -lcurl -o apk
+g++ src/*.cpp -Iinclude -lcurl -o arx
 ```
 
 Run:
 
 ```bash
-./apk install hello
+./arx install hello
 ```
 
 ## Example
