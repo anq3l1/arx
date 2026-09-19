@@ -2,6 +2,6 @@
 
 #include <string>
 
-std::string parsingJsonUrl(std::string package_name);
+std::string jsonUrl(std::string package_name);
 
-std::string parsingJsonNameAndVersion(std::string package_name);
+std::string jsonNameAndVersion(std::string package_name);

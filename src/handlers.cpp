@@ -13,11 +13,26 @@ std::string install(std::string package)
 
     std::cout << "Download: " <<  package << "...\n";
 
-    std::string file_tar = package + ".tar.gz";
+    std::string url = jsonUrl(package);
+
+    std::string extension;
+
+    if (url.find(".tar.gz") != std::string::npos)
+        extension = ".tar.gz";
+    else if (url.find(".tar.xz") != std::string::npos)
+        extension = ".tar.xz";
+    else if (url.find(".tar.bz2") != std::string::npos)
+        extension = ".tar.bz2";
+    else if (url.find(".zip") != std::string::npos)
+        extension = ".zip";
+    else if (url.find(".deb") != std::string::npos)
+        extension = ".deb";
+    else
+        extension = ".tar.gz";
+
+    std::string file_tar = package + extension;
 
     FILE* file = fopen(file_tar.c_str(), "wb");
-
-    std::string url = parsingJsonUrl(package);
 
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 

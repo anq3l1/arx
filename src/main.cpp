@@ -1,12 +1,9 @@
 #include <iostream>
-#include <curl/curl.h>
-#include <nlohmann/json.hpp>
-#include <cstdio>
 #include "handlers.h"
 
 int main(int argc, char* argv[])
 {
-    if (argc > 1 && std::string(argv[1]) == "install")
+    if (argc > 1 && std::string(argv[1]) == "-S")
     {
         install(argv[2]);
 

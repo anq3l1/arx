@@ -3,4 +3,4 @@
 #include <string>
 
 
-void unpack(const std::string package);
+void unpack(const std::string& package);
