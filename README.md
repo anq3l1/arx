@@ -21,7 +21,7 @@ Currently ARX can:
 When you run:
 
 ```bash
-./apk install hello
+./arx -S hello
 ```
 
 APK performs the following steps:
@@ -63,16 +63,17 @@ The package manager reads the package name, version and download URL from this f
 ## Project Structure
 
 ```text
-apk/
+arx/
 ├── include/
-│   ├── configure.h
-│   ├── install.h
+│   ├── build.h
+│   ├── unpacking.h
+│   ├── handlers.h
 │   └── json.h
 │
 ├── src/
 │   ├── main.cpp
-│   ├── install.cpp
-│   ├── configure.cpp
+│   ├── handlers.cpp
+│   ├── unpacking.cpp
 │   └── json.cpp
 │
 ├── packages.json
@@ -105,8 +106,8 @@ sudo pacman -S gcc curl nlohmann-json make
 Clone the repository:
 
 ```bash
-git clone https://github.com/anq3l1/apk.git
-cd apk
+git clone https://github.com/anq3l1/arx.git
+cd arx
 ```
 
 Compile:
@@ -118,13 +119,13 @@ g++ src/*.cpp -Iinclude -lcurl -o arx
 Run:
 
 ```bash
-./arx install hello
+./arx -S hello
 ```
 
 ## Example
 
 ```text
-$ ./apk install hello
+$ ./arx -S hello
 
 Download: hello...
 Download complete!
@@ -135,11 +136,11 @@ Run: Make...
 ...
 ```
 
-APK downloads the source archive, extracts it and runs the project's build process.
+ARX downloads the source archive, extracts it and runs the project's build process.
 
 ## Current Limitations
 
-APK is still under development.
+ARX is still under development.
 
 Currently:
 
@@ -177,18 +178,18 @@ The project should therefore be considered **experimental**.
 Planned commands:
 
 ```bash
-apk install <package>
-apk remove <package>
-apk search <package>
-apk info <package>
-apk list
-apk update
-apk upgrade
+arx -S <package>  - install
+arx -R <package>  - remove
+arx -Sh <package> - search
+arx -I <package>  - info
+arx -L            - list
+arx -Su           - update
+arx -Sug          - upgrade
 ```
 
 ## Why?
 
-The goal of APK is not to replace existing package managers such as `pacman`, `apt` or `dnf`.
+The goal of ARX is not to replace existing package managers such as `pacman`, `apt` or `dnf`.
 
 The project is being developed as a way to learn:
 
@@ -210,8 +211,3 @@ This project is licensed under the **GNU General Public License v3.0**.
 
 See [`LICENSE`](LICENSE) for more information.
 
-## Author
-
-Created by **anq3l1**.
-
-GitHub: [@anq3l1](https://github.com/anq3l1)
